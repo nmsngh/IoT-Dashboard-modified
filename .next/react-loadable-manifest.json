@@ -1,38 +1,50 @@
 {
-  "..\\node_modules\\@tanstack\\query-devtools\\build\\index.js -> ./DevtoolsComponent/HO4MOOFI.js": {
-    "id": null,
-    "files": []
+  "..\\node_modules\\@tanstack\\query-devtools\\build\\dev.js -> ./DevtoolsComponent/E3YREIG7.js": {
+    "id": "..\\node_modules\\@tanstack\\query-devtools\\build\\dev.js -> ./DevtoolsComponent/E3YREIG7.js",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_tanstack_query-devtools_build_DevtoolsComponent_E3YREIG7_js.js"
+    ]
   },
-  "..\\node_modules\\@tanstack\\query-devtools\\build\\index.js -> ./DevtoolsPanelComponent/HUY7CZI3.js": {
-    "id": null,
-    "files": []
+  "..\\node_modules\\@tanstack\\query-devtools\\build\\dev.js -> ./DevtoolsPanelComponent/LFXA4CB4.js": {
+    "id": "..\\node_modules\\@tanstack\\query-devtools\\build\\dev.js -> ./DevtoolsPanelComponent/LFXA4CB4.js",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_tanstack_query-devtools_build_DevtoolsPanelComponent_LFXA4CB4_js.js"
+    ]
+  },
+  "app\\(home)\\page.tsx -> @/components/Map": {
+    "id": "app\\(home)\\page.tsx -> @/components/Map",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Map_tsx.js"
+    ]
+  },
+  "app\\device\\[deviceName]\\page.tsx -> @/components/Map": {
+    "id": "app\\device\\[deviceName]\\page.tsx -> @/components/Map",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Map_tsx.js"
+    ]
   },
   "components\\Chart\\ChartCurrent\\ChartCurrent.tsx -> react-apexcharts": {
-    "id": 1369,
+    "id": "components\\Chart\\ChartCurrent\\ChartCurrent.tsx -> react-apexcharts",
     "files": [
-      "static/chunks/3975359d.84a31e18392709e8.js",
-      "static/chunks/369.040c640ca3eebcf5.js"
+      "static/chunks/_app-pages-browser_node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
     ]
   },
   "components\\Chart\\ChartEnergyConsumption\\ChartEnergyConsumption.tsx -> react-apexcharts": {
-    "id": 1369,
+    "id": "components\\Chart\\ChartEnergyConsumption\\ChartEnergyConsumption.tsx -> react-apexcharts",
     "files": [
-      "static/chunks/3975359d.84a31e18392709e8.js",
-      "static/chunks/369.040c640ca3eebcf5.js"
+      "static/chunks/_app-pages-browser_node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
     ]
   },
   "components\\Chart\\ChartTemperatureHumidity\\ChartTemperatureHumidity.tsx -> react-apexcharts": {
-    "id": 1369,
+    "id": "components\\Chart\\ChartTemperatureHumidity\\ChartTemperatureHumidity.tsx -> react-apexcharts",
     "files": [
-      "static/chunks/3975359d.84a31e18392709e8.js",
-      "static/chunks/369.040c640ca3eebcf5.js"
+      "static/chunks/_app-pages-browser_node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
     ]
   },
   "components\\Chart\\ChartVoltage\\ChartVoltage.tsx -> react-apexcharts": {
-    "id": 1369,
+    "id": "components\\Chart\\ChartVoltage\\ChartVoltage.tsx -> react-apexcharts",
     "files": [
-      "static/chunks/3975359d.84a31e18392709e8.js",
-      "static/chunks/369.040c640ca3eebcf5.js"
+      "static/chunks/_app-pages-browser_node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
     ]
   }
 }

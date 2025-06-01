@@ -4,8 +4,28 @@ import { ChangeEventHandler, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
 import Pagination from 'rc-pagination';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+// 2025 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useMutation, useQuery } from '@tanstack/react-query';
+import dynamic from 'next/dynamic';
+const MapLeaflet = dynamic(() => import('@/components/Map'), {
+  ssr: false,
+});
+
+
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// 마커 아이콘이 안 나오는 문제 해결
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+});
+
+
 
 import ChartCurrent from '@/components/Chart/ChartCurrent';
 import ChartEnergyConsumption from '@/components/Chart/ChartEnergyConsumption';
@@ -328,32 +348,19 @@ export default function HomePage() {
           { name: deviceName, data: deviceEnergyConsumptionData, color: 'red' },
         ]}
       />
+<MapLeaflet
+  center={[37.5509, 127.0738]}
+  zoom={12}
+  markers={[
+    {
+      lat: 37.5509,
+      lng: 127.0738,
+      label: '세종대학교',
+    },
+  ]}
+/>
 
-      {/* map */}
-      <div className="rounded-2xl border p-4 shadow-lg">
-        <div className="text-[20px] font-bold">Map</div>
-        <LoadScript googleMapsApiKey={env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-          <GoogleMap
-            mapContainerStyle={{
-              width: '100%',
-              height: '400px',
-            }}
-            center={{
-              lat: 37.55019990767467,
-              lng: 126.83168912732489,
-            }}
-            zoom={13}
-          >
-            <Marker
-              position={{
-                lat: Number(deviceLocation?.con.split(', ')[0]),
-                lng: Number(deviceLocation?.con.split(', ')[1]),
-              }}
-              label={deviceName}
-            />
-          </GoogleMap>
-        </LoadScript>
-      </div>
+
       {/* current */}
       <ChartCurrent
         series={[{ name: deviceName, data: deviceCurrentData, color: 'red' }]}

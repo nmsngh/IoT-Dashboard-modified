@@ -4,13 +4,38 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
 import Pagination from 'rc-pagination';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+// 2025 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import dynamic from 'next/dynamic';
 import { useQuery } from '@tanstack/react-query';
+//2025
+const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 import ChartCurrent from '@/components/Chart/ChartCurrent';
 import ChartEnergyConsumption from '@/components/Chart/ChartEnergyConsumption';
 import ChartTemperatureHumidity from '@/components/Chart/ChartTemperatureHumidity';
 import ChartVoltage from '@/components/Chart/ChartVoltage';
+
+//2025
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+
+// 마커 아이콘 오류 방지용 설정
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+});
+
+interface Props {
+  center: [number, number];
+  markers: { lat: number; lng: number; label: string }[];
+}
+
+//
 
 import {
   getData,
@@ -28,6 +53,8 @@ import {
 
 import { env } from '@/env';
 import { safeSessionStorage } from '@toss/storage';
+
+
 
 export default function HomePage() {
   const router = useRouter();
@@ -708,38 +735,17 @@ export default function HomePage() {
           { name: 'my_device3', data: device3TemperatureData, color: 'blue' },
         ]}
       />
-      {/* map */}
-      <div className="rounded-2xl border p-4 shadow-lg">
-        <div className="text-[20px] font-bold">Map</div>
-        <LoadScript googleMapsApiKey={env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-          <GoogleMap
-            mapContainerStyle={{
-              width: '100%',
-              height: '400px',
-            }}
-            center={{
-              lat: 37.55019990767467,
-              lng: 126.83168912732489,
-            }}
-            zoom={13}
-          >
-            <Marker
-              position={{
-                lat: Number(myDevice1Location?.con.split(', ')[0]),
-                lng: Number(myDevice1Location?.con.split(', ')[1]),
-              }}
-              label="my_device1"
-            />
-            <Marker
-              position={{
-                lat: Number(myDevice2Location?.con.split(', ')[0]),
-                lng: Number(myDevice2Location?.con.split(', ')[1]),
-              }}
-              label="my_device2"
-            />
-          </GoogleMap>
-        </LoadScript>
-      </div>
+    <div className="col-span-3 rounded-2xl border p-4 shadow-lg">
+      <div className="text-[20px] font-bold mb-2">Map</div>
+        <Map
+        center={[36.35705, 128.1187]}
+        zoom={7}
+        markers={[
+          { lat: 37.5509, lng: 127.0738, label: '세종대학교' },
+          { lat: 35.1632, lng: 129.1636, label: '부산 해운대구' },
+      ]}
+      />
+    </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-// File: C:\Users\dns00\Desktop\iot_2025_03_08\src\app\layout.tsx
+// File: C:\Users\SeongHaNam\Documents\GitHub\IoT-Dashboard-modified\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

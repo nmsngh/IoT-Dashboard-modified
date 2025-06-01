@@ -1,4 +1,4 @@
-// File: C:\Users\dns00\Desktop\iot_2025_03_08\src\app\device\[deviceName]\page.tsx
+// File: C:\Users\SeongHaNam\Documents\GitHub\IoT-Dashboard-modified\src\app\device\[deviceName]\page.tsx
 import * as entry from '../../../../../src/app/device/[deviceName]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
